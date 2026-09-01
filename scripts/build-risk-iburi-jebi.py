@@ -282,23 +282,24 @@ def main() -> None:
         "version": 4,
         "event": {
             "id": "HIS-2018-IBURI-JEBI",
-            "label": "2018 Iburi East Earthquake × Typhoon Jebi (TY1821)",
+            "label": "2018 M6.7 Hokkaido Eastern Iburi Earthquake and Typhoon Jebi (No. 21)",
             "year": eq["year"],
             "magnitude": eq["magnitude"],
             "depthKm": eq["depthKm"],
             "eqTime": eq["time"],
             "epicenter": {"lat": eq["lat"], "lng": eq["lon"]},
-            "typhoonCode": "TY1821",
+            "typhoonCode": "No. 21",
             "typhoonName": "Jebi",
             "windMs": peak_ms,
             "windSpeed": round((peak_ms or 0) * 3.6, 1),
-            "couplingType": "Earthquake followed by Typhoon",
+            # Jebi (No. 21) peaked over Japan ~2018-09-04; Iburi EQ on 2018-09-06 → TY then EQ
+            "couplingType": "Typhoon followed by Earthquake",
             "typhoonPath": path,
             "typhoonAtCoupling": None
             if coupling_pt is None
             else {"lat": coupling_pt["lat"], "lng": coupling_pt["lng"], "windMs": coupling_pt.get("windMs")},
             "descriptions": [
-                "Case study: 2018 Hokkaido Eastern Iburi earthquake (M6.7) coupled with Typhoon Jebi (TY1821).",
+                "Case study: 2018 M6.7 Hokkaido Eastern Iburi Earthquake and Typhoon Jebi (No. 21).",
                 "Grid losses from Coupled_Loss_with_Other_JPY (JPY); map colored by grid centers.",
                 f"Focal depth ≈ {eq['depthKm']:.0f} km; track points {len(path)}; loss grids {len(grid_cells)} / municipalities {len(regions)}.",
             ],

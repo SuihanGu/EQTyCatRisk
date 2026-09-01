@@ -1,0 +1,109 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#e8f4f3",
+    "primaryTextColor": "#0f2f2c",
+    "primaryBorderColor": "#2a9d8f",
+    "secondaryColor": "#f4f7f6",
+    "secondaryTextColor": "#1a2e2b",
+    "secondaryBorderColor": "#94a3b8",
+    "tertiaryColor": "#fff8e8",
+    "tertiaryTextColor": "#3d2e0a",
+    "tertiaryBorderColor": "#d4a017",
+    "lineColor": "#5a7a75",
+    "fontFamily": "IBM Plex Sans, Segoe UI, sans-serif",
+    "fontSize": "14px"
+  },
+  "flowchart": {
+    "curve": "basis",
+    "padding": 16,
+    "nodeSpacing": 36,
+    "rankSpacing": 48,
+    "htmlLabels": true
+  }
+}}%%
+
+flowchart TB
+  classDef app fill:#e8f4f3,stroke:#2a9d8f,stroke-width:1.5px,color:#0f2f2c
+  classDef page fill:#d6ebe8,stroke:#1f7a6f,stroke-width:1.5px,color:#0f2f2c
+  classDef ui fill:#f7fbfa,stroke:#7ab8af,stroke-width:1.2px,color:#1a2e2b
+  classDef state fill:#eef2ff,stroke:#6366f1,stroke-width:1.2px,color:#1e1b4b
+  classDef data fill:#fff8e8,stroke:#d4a017,stroke-width:1.2px,color:#3d2e0a
+  classDef pipe fill:#f3f4f6,stroke:#6b7280,stroke-width:1.2px,color:#111827
+  classDef ext fill:#ecfdf5,stroke:#059669,stroke-width:1.2px,color:#064e3b
+  classDef title fill:#0f2f2c,stroke:#0f2f2c,color:#ffffff,stroke-width:0
+
+  Title["EQTyCatRisk — EQ–Typhoon Catastrophe Risk"]:::title
+
+  subgraph Client["Frontend · Vue 3 + TypeScript + Vite"]
+    direction TB
+    Boot["Bootstrap<br/><i>main.ts · Pinia · Vue Router</i>"]:::app
+    Shell["App Shell<br/><i>AppLayout · Sidebar</i>"]:::app
+    Boot --> Shell
+
+    subgraph Routes["Routes"]
+      direction LR
+      Ev["/events<br/><b>Coupled Event Detection</b>"]:::page
+      Rk["/risk<br/><b>Risk Assessment</b>"]:::page
+    end
+    Shell --> Ev
+    Shell --> Rk
+
+    subgraph Views["Presentation"]
+      direction LR
+      Map["JapanMap<br/><i>Leaflet</i>"]:::ui
+      Charts["Side Charts<br/><i>EQ params · TC wind · ECharts</i>"]:::ui
+      Heads["Page Headers<br/><i>Event · Risk</i>"]:::ui
+    end
+    Ev --> Map
+    Ev --> Charts
+    Ev --> Heads
+    Rk --> Map
+    Rk --> Charts
+    Rk --> Heads
+  end
+
+  subgraph Domain["State · Services · Utilities"]
+    direction LR
+    Store["Pinia<br/><i>eventStore</i>"]:::state
+    Svc["Data Services<br/><i>couplingData · riskData</i>"]:::state
+    Util["Map Utils<br/><i>gridLossLayer · pathArrows<br/>epicenterMarker</i>"]:::state
+  end
+  Ev --> Store
+  Ev --> Svc
+  Rk --> Svc
+  Map --> Util
+  Svc --> Store
+
+  subgraph Assets["Static Assets · public/data"]
+    direction LR
+    CE["coupling-events.json"]:::data
+    RJ["risk-iburi-jebi.json"]:::data
+    RG["risk-grid-cells.json"]:::data
+    HM["hokkaido-municipalities.geojson"]:::data
+  end
+  Svc --> CE
+  Svc --> RJ
+  Svc --> RG
+  Svc --> HM
+
+  subgraph Pipeline["Offline Data Pipeline · Python"]
+    Raw["Sample Tables<br/><i>CSV · Excel under data/</i>"]:::pipe
+    Build["Build Scripts<br/><i>build-coupling-json.py<br/>build-risk-iburi-jebi.py</i>"]:::pipe
+    Raw --> Build
+  end
+  Build --> CE
+  Build --> RJ
+  Build --> RG
+
+  subgraph Basemap["Basemap Providers"]
+    direction LR
+    GSI["GSI Japan"]:::ext
+    Esri["Esri"]:::ext
+    OSM["OSM fallback"]:::ext
+  end
+  Map --> GSI
+  Map -.-> Esri
+  Map -.-> OSM
+
+  Title --> Client

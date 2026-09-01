@@ -7,7 +7,7 @@ The UI is in English. Two main modules:
 | Route | Page | Purpose |
 |-------|------|---------|
 | `/events` | Coupled Event Detection | Browse historical EQ–TC coupling pairs (1946–2024), map epicenters & full typhoon tracks |
-| `/risk` | Risk Assessment | 2018 Iburi East × Typhoon Jebi case: grid-level coupled loss (JPY) on Hokkaido |
+| `/risk` | Risk Assessment | 2018 M6.7 Hokkaido Eastern Iburi Earthquake and Typhoon Jebi (No. 21): grid-level coupled loss (JPY) on Hokkaido |
 
 ---
 
@@ -25,7 +25,7 @@ The UI is in English. Two main modules:
 - Fields include magnitude, wind, R34, focal depth (`depth_km`), distance, Δt
 
 ### Risk Assessment
-- Historical case: **2018 Iburi East Earthquake × Typhoon Jebi (TY1821)**
+- Historical case: **2018 M6.7 Hokkaido Eastern Iburi Earthquake and Typhoon Jebi (No. 21)**
 - Grid map colored by `Coupled_Loss_with_Other_JPY` (not municipality choropleth)
 - Fast Canvas rendering + compact grid JSON (async load)
 - Hover a grid for loss (JPY), population, PGA, wind
@@ -145,6 +145,6 @@ python scripts/build-hokkaido-choropleth.py
 
 ---
 
-## License / data
+## License
 
-Research prototype. Source hazard and exposure tables are project-provided; redistribute only under your data agreements.
+MIT License. See [LICENSE](LICENSE).

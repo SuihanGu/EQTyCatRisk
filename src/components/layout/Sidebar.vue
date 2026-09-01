@@ -5,7 +5,7 @@ const route = useRoute()
 
 const navItems = [
   { path: '/events', label: 'Coupled Event Detection', desc: 'Historical samples & tracks' },
-  { path: '/risk', label: 'Risk Assessment', desc: 'Iburi × Jebi case study' },
+  { path: '/risk', label: 'Risk Assessment', desc: 'Iburi EQ × Jebi (No. 21)' },
 ]
 </script>
 
