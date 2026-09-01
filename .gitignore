@@ -1,0 +1,28 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Large raw source datasets (exceed GitHub file limits / not needed to run the app)
+data/Sample data 1/Preprocessing/original data/
+data/Sample data 2/Hokkaido risk exposure data_PGA_Zhao2016 method_including wind speed.csv
