@@ -1,0 +1,22 @@
+{
+  "cases": {
+    "2004": {
+      "name": "2004 Chiba MA-ON",
+      "output_stem": "Case2004_Chiba_Maon",
+      "grid_file": "inputs/Case2004_Chiba_Maon_grid.csv",
+      "wind_column": "max_10min_mean_wind_speed_mps_20041009_20041010",
+      "pga_column": "PGA",
+      "sequence": "simultaneous",
+      "exchange_rate": 110.4
+    },
+    "2005": {
+      "name": "2005 Chiba BANYAN",
+      "output_stem": "Case2005_Chiba_Banyan",
+      "grid_file": "inputs/Case2005_Chiba_Banyan_grid.csv",
+      "wind_column": "max_10min_mean_wind_speed_mps_20050726_20050727",
+      "pga_column": "PGA",
+      "sequence": "simultaneous",
+      "exchange_rate": 110.4
+    }
+  }
+}

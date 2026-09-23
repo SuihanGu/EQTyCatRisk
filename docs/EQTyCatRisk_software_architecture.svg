@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="930" viewBox="0 0 1600 930" role="img" aria-labelledby="title desc">
+  <title id="title">EQTyCatRisk software architecture</title>
+  <desc id="desc">Three-block architecture showing the browser application, data and service repository, and Python scientific-computing engine.</desc>
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2457C5"/></marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6F32A8"/></marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#D94B4B"/></marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2E8B57"/></marker>
+    <style>
+      .title{font:700 30px Arial,sans-serif;fill:#17324D}
+      .head{font:700 24px Arial,sans-serif}
+      .boxhead{font:700 19px Arial,sans-serif;fill:#17324D}
+      .body{font:16px Arial,sans-serif;fill:#17324D}
+      .small{font:italic 15px Arial,sans-serif}
+      .label{font:15px Arial,sans-serif}
+    </style>
+  </defs>
+  <rect width="1600" height="930" fill="#ffffff"/>
+  <text x="800" y="55" text-anchor="middle" class="title">EQTyCatRisk software architecture</text>
+
+  <rect x="55" y="110" width="390" height="650" rx="18" fill="#EAF6E8" stroke="#2E8B57" stroke-width="4"/>
+  <text x="250" y="150" text-anchor="middle" class="head" fill="#17633A">1. Browser-based Web application</text>
+  <rect x="95" y="190" width="310" height="78" rx="10" fill="#fff" stroke="#72B47E" stroke-width="2"/>
+  <text x="250" y="222" text-anchor="middle" class="boxhead"><tspan x="250">User selects a case</tspan><tspan x="250" dy="24">or starts a task</tspan></text>
+  <path d="M250 268 V288" stroke="#2E8B57" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <rect x="95" y="290" width="310" height="85" rx="10" fill="#fff" stroke="#72B47E" stroke-width="2"/>
+  <text x="250" y="325" text-anchor="middle" class="boxhead"><tspan x="250">Coupled event detection</tspan><tspan x="250" dy="24" class="body">Simultaneous events</tspan></text>
+  <path d="M250 375 V400" stroke="#2E8B57" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <rect x="95" y="405" width="310" height="85" rx="10" fill="#fff" stroke="#72B47E" stroke-width="2"/>
+  <text x="250" y="440" text-anchor="middle" class="boxhead"><tspan x="250">Coupled risk assessment</tspan><tspan x="250" dy="24" class="body">PGA / wind / loss</tspan></text>
+  <path d="M250 490 V535" stroke="#2E8B57" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <rect x="95" y="550" width="310" height="95" rx="10" fill="#F7FFF6" stroke="#2E8B57" stroke-width="2"/>
+  <text x="250" y="587" text-anchor="middle" class="boxhead"><tspan x="250">Maps · heatmaps · charts</tspan><tspan x="250" dy="25" class="body">Status · downloads</tspan></text>
+
+  <rect x="520" y="110" width="960" height="330" rx="18" fill="#EAF2FF" stroke="#2457C5" stroke-width="4"/>
+  <text x="1000" y="150" text-anchor="middle" class="head" fill="#173A91">2. Data and service repository</text>
+  <text x="1000" y="178" text-anchor="middle" class="small" fill="#2457C5">HTTP + JSON / CSV / PNG contract</text>
+  <rect x="565" y="205" width="365" height="175" rx="10" fill="#fff" stroke="#6E99E7" stroke-width="2"/>
+  <text x="585" y="238" class="boxhead">Source inputs</text>
+  <text x="585" y="270" class="body">Japanese earthquake catalogue</text>
+  <text x="585" y="298" class="body">Japanese typhoon catalogue</text>
+  <text x="585" y="326" class="body">Exposure &amp; vulnerability grids</text>
+  <rect x="1045" y="205" width="390" height="175" rx="10" fill="#fff" stroke="#6E99E7" stroke-width="2"/>
+  <text x="1065" y="238" class="boxhead">Generated artefacts</text>
+  <text x="1065" y="270" class="body">Coupling tables · complete tracks</text>
+  <text x="1065" y="298" class="body">Case grids · loss CSV / PNG</text>
+  <text x="1065" y="326" class="body">Stable JSON / CSV / PNG endpoints</text>
+
+  <rect x="520" y="500" width="960" height="260" rx="18" fill="#F3EAFE" stroke="#6F32A8" stroke-width="4"/>
+  <text x="1000" y="540" text-anchor="middle" class="head" fill="#5A238E">3. Python scientific-computing engine</text>
+  <rect x="555" y="585" width="195" height="105" rx="10" fill="#fff" stroke="#A77AD2" stroke-width="2"/>
+  <text x="652" y="620" text-anchor="middle" class="boxhead"><tspan x="652">Preprocessing</tspan><tspan x="652" dy="25" class="body">JST · units · coordinates</tspan></text>
+  <rect x="785" y="585" width="205" height="105" rx="10" fill="#fff" stroke="#A77AD2" stroke-width="2"/>
+  <text x="887" y="620" text-anchor="middle" class="boxhead"><tspan x="887">Coupling recognition</tspan><tspan x="887" dy="25" class="body">Simultaneous + R30</tspan></text>
+  <rect x="1025" y="585" width="210" height="105" rx="10" fill="#fff" stroke="#A77AD2" stroke-width="2"/>
+  <text x="1130" y="620" text-anchor="middle" class="boxhead"><tspan x="1130">Hazard &amp; risk</tspan><tspan x="1130" dy="25" class="body">PGA + wind + vulnerability</tspan></text>
+  <rect x="1270" y="585" width="175" height="105" rx="10" fill="#fff" stroke="#A77AD2" stroke-width="2"/>
+  <text x="1357" y="615" text-anchor="middle" class="boxhead"><tspan x="1357">Output generation</tspan><tspan x="1357" dy="23" class="body">Monte Carlo loss</tspan><tspan x="1357" dy="22" class="body">without_Other</tspan></text>
+
+  <path d="M405 230 H500 V250 H565" fill="none" stroke="#2457C5" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <text x="450" y="215" text-anchor="middle" class="label" fill="#173A91">Request data / task</text>
+  <path d="M1045 350 H480 V600 H405" fill="none" stroke="#2457C5" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrowBlue)"/>
+  <text x="470" y="575" text-anchor="middle" class="label" fill="#173A91">Metadata / results</text>
+  <path d="M747 380 V470 H652 V585" fill="none" stroke="#6F32A8" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrowPurple)"/>
+  <text x="670" y="468" text-anchor="middle" class="label" fill="#5A238E">Run Python workflow</text>
+  <path d="M1357 585 V470 H1240 V380" fill="none" stroke="#D94B4B" stroke-width="3" marker-end="url(#arrowRed)"/>
+  <text x="1285" y="468" text-anchor="middle" class="label" fill="#A52929">Generated outputs</text>
+  <path d="M750 637 H785" stroke="#6F32A8" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+  <path d="M990 637 H1025" stroke="#6F32A8" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+  <path d="M1235 637 H1270" stroke="#6F32A8" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+
+  <rect x="330" y="820" width="940" height="48" rx="8" fill="#fff" stroke="#B9C3D0"/>
+  <text x="800" y="850" text-anchor="middle" class="label"><tspan fill="#2457C5">━━ Request / data flow</tspan><tspan dx="28" fill="#6F32A8">╌╌ Computation flow</tspan><tspan dx="28" fill="#D94B4B">━━ Generated output</tspan><tspan dx="28" fill="#2E8B57">━━ User-facing result</tspan></text>
+</svg>

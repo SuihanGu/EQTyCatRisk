@@ -1,0 +1,19 @@
+{
+  "case": "2004",
+  "name": "2004 Chiba MA-ON",
+  "loss_file_stem": "Case2004_Chiba_Maon",
+  "exposure": "without_Other",
+  "samples": 2000,
+  "seed": 20260706,
+  "sequence": "simultaneous",
+  "exchange_rate_jpy_per_usd": 110.2,
+  "v12_rng_order": "with_Other_then_without_Other",
+  "grid_file": "data/Sample data 2/Preprocessing/inputs/Case2004_Chiba_Maon_grid.csv",
+  "exposure_file": "data/Sample data 2/Preprocessing/inputs/Chiba_exposure.csv",
+  "calculation": "repository-local extraction of visualization-loss-value-12",
+  "outputs": [
+    "Case2004_Chiba_Maon_Earthquake_loss.csv",
+    "Case2004_Chiba_Maon_Typhoon_loss.csv",
+    "Case2004_Chiba_Maon_Coupled_loss.csv"
+  ]
+}

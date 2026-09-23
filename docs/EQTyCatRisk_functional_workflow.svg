@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">EQTyCatRisk functional workflow</title>
+  <desc id="desc">Functional workflow for historical earthquake-typhoon simultaneous-event detection and residential-loss calculation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#000"/></marker>
+    <style>
+      .title{font:700 30px Georgia,serif;fill:#111}
+      .section{font:700 23px Georgia,serif;fill:#111}
+      .head{font:700 19px Georgia,serif;fill:#111}
+      .body{font:16px Georgia,serif;fill:#111}
+      .small{font:15px Georgia,serif;fill:#111}
+      .box{fill:#E2E7EA;stroke:#000;stroke-width:2.5}
+      .container{fill:#fff;stroke:#000;stroke-width:2.8}
+      .flow{fill:none;stroke:#000;stroke-width:2.5;marker-end:url(#arrow)}
+      .dashed{fill:none;stroke:#000;stroke-width:2.3;stroke-dasharray:9 7;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" fill="#fff"/>
+  <text x="800" y="55" text-anchor="middle" class="title">EQTyCatRisk functional workflow</text>
+
+  <rect x="50" y="155" width="170" height="70" class="box"/>
+  <text x="135" y="197" text-anchor="middle" class="head">Start (Web interface)</text>
+  <rect x="270" y="140" width="250" height="100" class="box"/>
+  <text x="395" y="180" text-anchor="middle" class="head"><tspan x="395">Load historical catalogues</tspan><tspan x="395" dy="25" class="body">1950–2026; JST time standard</tspan></text>
+  <path d="M220 190 H270" class="flow"/>
+
+  <rect x="570" y="95" width="960" height="300" rx="25" class="container"/>
+  <text x="600" y="130" class="section">Function 1. Historical simultaneous-event detection</text>
+  <rect x="610" y="170" width="245" height="100" class="box"/>
+  <text x="732" y="205" text-anchor="middle" class="head"><tspan x="732">Earthquake catalogue</tspan><tspan x="732" dy="24" class="body">Coordinates · Mj · depth</tspan><tspan x="732" dy="22" class="body">JST occurrence time</tspan></text>
+  <rect x="885" y="170" width="245" height="100" class="box"/>
+  <text x="1007" y="205" text-anchor="middle" class="head"><tspan x="1007">Typhoon catalogue</tspan><tspan x="1007" dy="24" class="body">Track · wind speed · R30</tspan><tspan x="1007" dy="22" class="body">JST observation time</tspan></text>
+  <rect x="1160" y="150" width="325" height="140" class="box"/>
+  <text x="1322" y="185" text-anchor="middle" class="head"><tspan x="1322">Coupling definition</tspan><tspan x="1322" dy="24" class="body">72 h time window</tspan><tspan x="1322" dy="22" class="body">Spatial overlap with R30</tspan><tspan x="1322" dy="22" class="body">Mj ≥ 5.0; wind speed ≥ 17 kt</tspan></text>
+  <rect x="845" y="310" width="330" height="60" class="box"/>
+  <text x="1010" y="337" text-anchor="middle" class="head"><tspan x="1010">One-to-one matching</tspan><tspan x="1010" dy="21" class="body">Simultaneous event set · 24 pairs</tspan></text>
+  <path d="M520 180 H565 V220 H610" class="flow"/>
+  <path d="M520 205 H550 V220 H885" class="flow"/>
+  <path d="M855 220 H1160" class="flow"/>
+  <path d="M1130 220 H1160" class="flow"/>
+  <path d="M1322 290 V310 H1175" class="flow"/>
+
+  <rect x="160" y="485" width="1370" height="365" rx="25" class="container"/>
+  <text x="190" y="520" class="section">Function 2. Historical event residential-loss calculation</text>
+  <rect x="205" y="620" width="180" height="85" class="box"/>
+  <text x="295" y="655" text-anchor="middle" class="head"><tspan x="295">Select target</tspan><tspan x="295" dy="25">coupled event</tspan></text>
+  <rect x="425" y="610" width="225" height="105" class="box"/>
+  <text x="537" y="643" text-anchor="middle" class="head"><tspan x="537">Read unified event structure</tspan><tspan x="537" dy="24" class="body">Earthquake · typhoon</tspan><tspan x="537" dy="22" class="body">coupling data</tspan></text>
+  <rect x="700" y="555" width="330" height="195" rx="18" class="container"/>
+  <text x="865" y="588" text-anchor="middle" class="head">Hazard calculation</text>
+  <rect x="730" y="600" width="270" height="55" class="box"/>
+  <text x="865" y="622" text-anchor="middle" class="head"><tspan x="865">Earthquake PGA</tspan><tspan x="865" dy="20" class="small">Zhao ground-motion model</tspan></text>
+  <rect x="730" y="675" width="270" height="55" class="box"/>
+  <text x="865" y="697" text-anchor="middle" class="head"><tspan x="865">Typhoon wind field</tspan><tspan x="865" dy="20" class="small">JMA AmeDAS interpolation</tspan></text>
+  <rect x="1080" y="610" width="220" height="105" class="box"/>
+  <text x="1190" y="643" text-anchor="middle" class="head"><tspan x="1190">Spatial matching</tspan><tspan x="1190" dy="24" class="body">Residential exposure</tspan><tspan x="1190" dy="22" class="body">+ vulnerability surface</tspan></text>
+  <rect x="1340" y="610" width="155" height="105" class="box"/>
+  <text x="1417" y="643" text-anchor="middle" class="head"><tspan x="1417">Uncertainty</tspan><tspan x="1417" dy="23" class="body">Gaussian field</tspan><tspan x="1417" dy="21" class="body">+ 2,000 runs</tspan></text>
+  <rect x="650" y="780" width="650" height="55" class="box"/>
+  <text x="975" y="803" text-anchor="middle" class="head"><tspan x="975">Grid maps, heatmaps and probability distributions</tspan><tspan x="975" dy="21" class="body">Earthquake loss · Typhoon loss · Coupled loss · CSV / PNG</tspan></text>
+
+  <path d="M1010 370 V430 H295 V620" class="dashed"/>
+  <text x="575" y="428" text-anchor="middle" class="small">Unified event data structure</text>
+  <path d="M385 662 H425" class="flow"/>
+  <path d="M650 662 H700" class="flow"/>
+  <path d="M865 595 V600" class="flow"/>
+  <path d="M865 655 V675" class="flow"/>
+  <path d="M1030 662 H1080" class="flow"/>
+  <path d="M1300 662 H1340" class="flow"/>
+  <path d="M1417 715 V780 H1300" class="flow"/>
+
+  <text x="800" y="900" text-anchor="middle" class="small">Solid arrows: data and process flow   |   Dashed arrow: shared event structure</text>
+  <text x="800" y="950" text-anchor="middle" class="head">Fig. 3. Functional workflow of EQTyCatRisk.</text>
+</svg>
